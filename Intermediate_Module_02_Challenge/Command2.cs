@@ -17,6 +17,8 @@ namespace Intermediate_Module_02_Challenge
     [Transaction(TransactionMode.Manual)]
     public class Command2 : IExternalCommand
     {
+        private FamilySymbol curAreaTag;
+
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             // this is a variable for the Revit application
@@ -29,8 +31,12 @@ namespace Intermediate_Module_02_Challenge
             View curView = doc.ActiveView;
             FilteredElementCollector collector = new FilteredElementCollector(doc);
 
+
             List<BuiltInCategory> catList = new List<BuiltInCategory>();
             catList.Add(BuiltInCategory.OST_Areas);
+
+            ElementMulticategoryFilter catFilter = new ElementMulticategoryFilter(catList);
+            collector.WherePasses(catFilter).WhereElementIsNotElementType();
 
             int counter = 0;
 
@@ -59,11 +65,16 @@ namespace Intermediate_Module_02_Challenge
 
                         instPoint = GetMidpointBetweenTwoPoints(curCurve.GetEndPoint(0), curCurve.GetEndPoint(1));
                     }
+                    Dictionary<string, FamilySymbol> tags = new Dictionary<string, FamilySymbol>();
+                    tags.Add("Areas", curAreaTag);
+                    FamilySymbol curTagType = tags[curElem.Category.Name];
 
+                    Reference curRef = new Reference(curElem);
 
                     //Place Tag
                     if (IsElementTagged(curView, curElem) == false)
                     {
+                        
                         //Place Area Tag
                         if (curElem.Category.Name == "Area")
                         {
@@ -77,9 +88,8 @@ namespace Intermediate_Module_02_Challenge
                         }
                         counter++;
                     }
-
-                    t.Commit();
                 }
+                t.Commit();
                 TaskDialog.Show("Complete", $"Placed {counter} tags in the current view");
             }
 

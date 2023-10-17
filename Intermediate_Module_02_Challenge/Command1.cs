@@ -35,7 +35,7 @@ namespace Intermediate_Module_02_Challenge
             //catList.Add(BuiltInCategory.OST_Areas);
             catList.Add(BuiltInCategory.OST_Walls);
             catList.Add(BuiltInCategory.OST_Doors);
-            catList.Add(BuiltInCategory.OST_LightingFixtures);
+            //catList.Add(BuiltInCategory.OST_LightingFixtures);
             catList.Add(BuiltInCategory.OST_Windows);
             catList.Add(BuiltInCategory.OST_Furniture);
 
@@ -52,8 +52,8 @@ namespace Intermediate_Module_02_Challenge
             FamilySymbol curDoorTag = new FilteredElementCollector(doc).OfClass(typeof(FamilySymbol))
                 .Cast<FamilySymbol>().Where(x => x.FamilyName.Equals("M_Door Tag")).First();
 
-            FamilySymbol curLightTag = new FilteredElementCollector(doc).OfClass(typeof(FamilySymbol))
-                .Cast<FamilySymbol>().Where(x => x.FamilyName.Equals("M_Lighting Fixture Tag")).First();
+            //FamilySymbol curLightTag = new FilteredElementCollector(doc).OfClass(typeof(FamilySymbol))
+            //    .Cast<FamilySymbol>().Where(x => x.FamilyName.Equals("M_Lighting Fixture Tag")).First();
 
             FamilySymbol curWindowTag = new FilteredElementCollector(doc).OfClass(typeof(FamilySymbol))
                 .Cast<FamilySymbol>().Where(x => x.FamilyName.Equals("M_Window Tag")).First();
@@ -65,7 +65,7 @@ namespace Intermediate_Module_02_Challenge
             tags.Add("Rooms", curRoomTag);
             tags.Add("Walls", curWallTag);
             tags.Add("Doors", curDoorTag);
-            tags.Add("Lighting Fixtures", curLightTag);
+            //tags.Add("Lighting Fixtures", curLightTag);
             tags.Add("Windows", curWindowTag);
             tags.Add("Furniture", curFurnTag);
 
@@ -103,11 +103,11 @@ namespace Intermediate_Module_02_Challenge
                         WallType curWallType = curWall.WallType;
                     }
 
-                    ViewType cureViewType = curView.ViewType;
-                    if (cureViewType == ViewType.AreaPlan)
-                    {
-                        TaskDialog.Show("Area View", "This is an Area View Plan");
-                    }
+                    //ViewType cureViewType = curView.ViewType;
+                    //if (cureViewType == ViewType.AreaPlan)
+                    //{
+                    //    TaskDialog.Show("Area View", "This is an Area View Plan");
+                    //}
 
                     FamilySymbol curTagType = tags[curElem.Category.Name];
 
@@ -148,14 +148,14 @@ namespace Intermediate_Module_02_Challenge
                             }
                         }
 
-                        if (curView.ViewType == ViewType.Section)
-                        {
-                            //Section View Tag Location
-                            if (curElem.Category.Name == "Rooms")
-                            {
-                                newTag.TagHeadPosition = new XYZ(instPoint.X, instPoint.Y, 3);
-                            }
-                        }
+                        //if (curView.ViewType == ViewType.Section)
+                        //{
+                        //    //Section View Tag Location
+                        //    if (curElem.Category.Name == "Rooms")
+                        //    {
+                        //        newTag.TagHeadPosition = new XYZ(instPoint.X, instPoint.Y, 3);
+                        //    }
+                        //}
                         
                         
                     }
