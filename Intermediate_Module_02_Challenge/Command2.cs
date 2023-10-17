@@ -121,7 +121,7 @@ namespace Intermediate_Module_02_Challenge
         {
             // use this method to define the properties for this command in the Revit ribbon
             string buttonInternalName = "btnCommand2";
-            string buttonTitle = "Button 2";
+            string buttonTitle = "Area Tags";
 
             ButtonDataClass myButtonData1 = new ButtonDataClass(
                 buttonInternalName,
@@ -129,7 +129,7 @@ namespace Intermediate_Module_02_Challenge
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
                 Properties.Resources.Blue_32,
                 Properties.Resources.Blue_16,
-                "This is a tooltip for Button 2");
+                "This tool tags all Areas in Area Plans.");
 
             return myButtonData1.Data;
         }

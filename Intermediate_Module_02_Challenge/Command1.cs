@@ -197,7 +197,7 @@ namespace Intermediate_Module_02_Challenge
         {
             // use this method to define the properties for this command in the Revit ribbon
             string buttonInternalName = "btnCommand1";
-            string buttonTitle = "Button 1";
+            string buttonTitle = "Floor Plan Tags";
 
             ButtonDataClass myButtonData1 = new ButtonDataClass(
                 buttonInternalName,
@@ -205,7 +205,7 @@ namespace Intermediate_Module_02_Challenge
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
                 Properties.Resources.Blue_32,
                 Properties.Resources.Blue_16,
-                "This is a tooltip for Button 1");
+                "This tools tags most elements in Floor Plan View.");
 
             return myButtonData1.Data;
         }

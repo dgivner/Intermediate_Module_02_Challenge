@@ -119,18 +119,18 @@ namespace Intermediate_Module_02_Challenge
         internal static PushButtonData GetButtonData()
         {
             // use this method to define the properties for this command in the Revit ribbon
-            string buttonInternalName = "btnCommand1";
-            string buttonTitle = "Button 1";
+            string buttonInternalName = "btnCommand4";
+            string buttonTitle = "RCP Tags";
 
-            ButtonDataClass myButtonData1 = new ButtonDataClass(
+            ButtonDataClass myButtonData4 = new ButtonDataClass(
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
                 Properties.Resources.Blue_32,
                 Properties.Resources.Blue_16,
-                "This is a tooltip for Button 1");
+                "This tool tags all lights and rooms in RCP views.");
 
-            return myButtonData1.Data;
+            return myButtonData4.Data;
         }
     }
 }
