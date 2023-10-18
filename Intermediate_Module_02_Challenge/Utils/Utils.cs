@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Intermediate_Module_02_Challenge
+namespace Intermediate_Module_02_Challenge.Utils
 {
     internal static class Utils
     {
@@ -30,5 +30,6 @@ namespace Intermediate_Module_02_Challenge
 
             return null;
         }
+        
     }
 }
